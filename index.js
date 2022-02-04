@@ -1,6 +1,8 @@
 import express from 'express';
 import { default as routes } from './methods.js';
+import dotenv from 'dotenv';
 
+dotenv.config();
 const router = express()
 
 router.use('/', routes)
