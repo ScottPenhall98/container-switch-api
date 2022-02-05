@@ -1,10 +1,11 @@
 import express from 'express';
 import { default as routes } from './methods.js';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 const router = express()
-
+router.use(cors());
 router.use('/', routes)
 
 router.use((req, res, next) => {
