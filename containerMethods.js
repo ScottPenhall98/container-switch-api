@@ -4,7 +4,7 @@ const status = async () => {
     return new Promise((resolve, reject) => {
         child.exec(`docker inspect ${process.env.CONTAINER_NAME} | grep State -A 12`, (err, stdout, stderr) => {
             if (err) {
-                resolve(JSON.parse('{"Successful": false, "Error": "Error while getting container status"}'));
+                resolve(JSON.parse(`{"Successful": false, "Error": "${err}"}`));
                 return
             }
             let data = stdout.split(',')
